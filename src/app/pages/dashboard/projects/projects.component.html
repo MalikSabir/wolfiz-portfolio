@@ -1,0 +1,55 @@
+<!--begin::Loader-->
+<!-- <div class="loader" *ngIf="isLoading">
+    <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+</div> -->
+<!--End::Loader-->
+<!--begin::Card-->
+<div class="card card-custom">
+    <div class="card-header">
+        <div class="card-title">
+            <span class="card-icon">
+                <i class="flaticon2-favourite text-primary"></i>
+            </span>
+            <h3 class="card-label">List of All Projects</h3>
+        </div>
+        <div class="card-toolbar">
+            <a routerLink="/dashboard/add-new-projects" class="btn btn-primary font-weight-bolder">
+                <i class="la la-plus"></i>New Record</a>
+            <!--end::Button-->
+        </div>
+    </div>
+    <div class="card-body">
+        <!--begin: Datatable-->
+        <table class="table table-bordered table-hover table-checkable" id="kt_datatable"
+            style="margin-top: 13px !important">
+            <thead>
+                <tr>
+                    <th>Project ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ap of allProjects; index as i">
+                    <td>{{i+1}}</td>
+                    <td>{{ap.title}}</td>
+                    <td>{{ap.description}}</td>
+                    <td>{{ap.status}}</td>
+                    <td>
+                        <a class="btn btn-icon btn-light btn-hover-danger btn-sm"
+                        (click)="confirmBox(ap.pk_project, ap.thumbnail)">
+                            <span class="svg-icon svg-icon-md svg-icon-danger">
+                                <i class="icon-xl la la-trash text-danger"></i>
+                            </span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--end: Datatable-->
+    </div>
+</div>

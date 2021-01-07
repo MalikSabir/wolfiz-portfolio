@@ -1,0 +1,62 @@
+<!-- <div class="loader" *ngIf="isLoading">
+    <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+</div> -->
+
+
+<div class="container">
+    <div class="row project-search">
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <form [formGroup]="searchForm" class="d-flex">
+                <div class="form-group col-lg-8 m-2">
+                    <input type="text" class="form-control project-search_serchInput" (keyup)="keypress($event.target.value)" formControlName="search"
+                        placeholder="SEARCH PROJECTS">
+                </div>
+                <div class="form-group">
+                </div>
+            </form>
+        </div>
+
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <div class="d-flex justify-content-end">
+                <div class="dropdown m-2">
+                    <form [formGroup]="form">
+                        <div class="form-group">
+                            <select formControlName="category" class="form-control project-search_dropdown"
+                                (change)="changeCategory($event)" placeholder="Select Category">
+                                <option disabled>Select Category</option>
+                                <option isSelect Value="0">All</option>
+                                <option *ngFor="let categroy of categoryList" value={{categroy.pk_category}}>
+                                    {{categroy.categoryName}}</option>
+                            </select>
+                            <div *ngIf="f.category.touched && f.category.invalid" class="alert alert-danger">
+                                <div *ngIf="f.category.errors.required">Name is required.</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="dropdown m-2 mt-3">
+                    <div class="form-group">
+                        <form [formGroup]="toggleForm">
+                            <!-- <label class="col-3 col-form-label">Primary</label> -->
+                            <div class="col-3">
+                                <span class="switch switch-primary">
+                                    <div class="d-flex">
+                                        <label class="m-2">ASC</label>
+                                        <label>
+                                            <input type="checkbox" checked="checked" formControlName="toggleStatus" (click)="toggle()" />
+                                            <span></span>
+                                        </label>
+                                        <label class="m-2">DESC</label>
+                                    </div>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

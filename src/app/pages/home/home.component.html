@@ -1,0 +1,31 @@
+
+<div class="container">
+    <div class="row top-nav">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <header>
+          <div class="d-flex justify-content-between">
+            <a href="" routerLink="/dashboard"><img src="./assets/images/wolfiz_logo.png" class="mt-1 img img-fluid w-75" alt=""></a><hr>
+          </div><hr>
+        </header>
+      </div>
+    </div>
+  </div>
+  
+<div class="container">
+    <div class="row home">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+          <app-project-search (searchedRecord)="getSearchedData($event)"></app-project-search><hr>
+      </div>
+      <div class="col-sm-12 col-md-4" *ngFor="let s of projectList">
+        <div class="card m-2">
+          <img class="card-img-top thumbanail" src="{{s.thumbnail}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title text-center text-primary">{{s.title}}</h5>
+            <a class="d-flex justify-content-center" (click)="View(s.pk_project)">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   <!-- hy -->
+  
